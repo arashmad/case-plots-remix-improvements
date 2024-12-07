@@ -62,7 +62,6 @@ const ValueRangeSelector: React.FC<IValueRangeSelector> = (props) => {
 
   const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setRange({ ...range, [name]: Number(value) });
     onChange(e);
   };
