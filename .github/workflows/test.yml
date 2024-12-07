@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run Tests and Generate Coverage
-        run: npm test -- --coverage
+        run: npm test --coverage
 
       # Upload coverage report to Codecov
       - name: Upload coverage reports to Codecov
