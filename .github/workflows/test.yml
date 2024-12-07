@@ -1,13 +1,10 @@
 name: Tests & Coverage
 
 # Run the workflow on push or pull requests to main or feature branches
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - "*"
 
 jobs:
   test:
