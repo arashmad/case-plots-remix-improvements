@@ -1,3 +1,5 @@
+import React from "react";
+
 /* Interfaces */
 import { IParcel } from "~/interfaces/Parcel";
 
@@ -21,9 +23,9 @@ import { IParcel } from "~/interfaces/Parcel";
  * @prop {string} location Location of parcel
  * @prop {number} area Area of parcel in square meters
  * @prop {number} value Value of parcel in dollars
- * @returns {ReactElement} A single parcel component
+ * @returns {React.ReactNode} A single parcel component
  */
-const Parcel: React.FC<IParcel> = (props) => {
+const Parcel: React.FC<IParcel> = (props: IParcel): React.ReactNode => {
   const { id, title, description, location, area, value } = props;
 
   return (

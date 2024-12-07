@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 /* Interfaces */
 import { IValueRangeSelector } from "~/interfaces/ValueRangeSelector";
@@ -17,9 +17,11 @@ import { IValueRangeSelector } from "~/interfaces/ValueRangeSelector";
  * @prop {number | string | undefined} minValue The minimum value of the range.
  * @prop {number | string | undefined} maxValue The maximum value of the range.
  * @prop {(e: React.ChangeEvent<HTMLInputElement>) => void} onChange The callback function called when the range changes.
- * @returns {ReactElement} A value range selector component
+ * @returns {React.ReactNode} A value range selector component
  */
-const ValueRangeSelector: React.FC<IValueRangeSelector> = (props) => {
+const ValueRangeSelector: React.FC<IValueRangeSelector> = (
+  props: IValueRangeSelector
+): React.ReactNode => {
   const { minValue, maxValue, onChange } = props;
 
   const [range, setRange] = useState({
