@@ -6,7 +6,7 @@ import type { MetaFunction, LoaderFunction } from "@remix-run/node";
 import { useLoaderData, useSearchParams } from "@remix-run/react";
 
 /* Built-in Components*/
-import ValueRangeSelector from "~/components/Form/ValueRangeSelector";
+import ValueRangeSelector from "~/components/ValueRangeSelector";
 import Parcel from "~/components/Parcel";
 
 /* Data */
