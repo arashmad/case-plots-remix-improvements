@@ -1,6 +1,5 @@
 name: Tests & Coverage
 
-# Run the workflow on push or pull requests to main or feature branches
 on:
   push:
   pull_request:
@@ -24,10 +23,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      # Run test for code style
+      - name: Run ESLint
+        run: npm run lint
+
+      # Run tests
       - name: Run Tests and Generate Coverage
         run: npm test --coverage
 
-      # Upload coverage report to Codecov
+      # Create coverage report using Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
