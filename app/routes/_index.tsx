@@ -59,23 +59,6 @@ export const loader: LoaderFunction = async ({ request }) => {
  * This component displays a list of all available land plots.
  * The list can be filtered by price range.
  *
- * The component uses the `useLoaderData` hook to get the list of plots from
- * the server.
- *
- * The component uses the `useState` hook to store the current price range
- * selected by the user.
- *
- * The component uses the `useEffect` hook to dynamically calculate the
- * minimum and maximum prices from the JSON data on mount.
- *
- * The component renders a page with a header, a price filter section and a
- * list of plots.
- *
- * The price filter section displays a range slider component that allows the
- * user to select a price range.
- *
- * The list of plots displays a list of plot components, each of which displays
- * the title, description, location, area and value of the plot.
  */
 export default function Index() {
   const { plots } = useLoaderData<{ plots: Plot[] }>();
@@ -89,12 +72,6 @@ export default function Index() {
 
   /**
    * Handle the change event of the price filter input field.
-   *
-   * Updates the search parameters with the new value of the input field.
-   * If the input field is empty, the search parameter is deleted.
-   *
-   * The function is called whenever the user changes the value of the input field.
-   *
    * @param {React.ChangeEvent<HTMLInputElement>} e - The change event
    */
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
