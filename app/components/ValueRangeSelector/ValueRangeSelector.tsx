@@ -1,43 +1,10 @@
 import { useState } from "react";
 
-/**
- * Interface for a value range selector component.
- *
- * @interface IValueRangeSelector
- */
-interface IValueRangeSelector {
-  /**
-   * The minimum value of the range.
-   *
-   * @type {number | string | undefined}
-   */
-  minValue: number | string | undefined;
-
-  /**
-   * The maximum value of the range.
-   *
-   * @type {number | string | undefined}
-   */
-  maxValue: number | string | undefined;
-
-  /**
-   * Callback function called when the range changes.
-   *
-   * @param {React.ChangeEvent<HTMLInputElement>} e - The change event
-   */
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+/* Interfaces */
+import { IValueRangeSelector } from "~/interfaces/ValueRangeSelector";
 
 /**
  * A component that allows the user to select a range of values.
- * The component contains two input fields: one for the minimum value
- * and one for the maximum value.
- *
- * The component uses the `useState` hook to store the current range
- * selected by the user.
- *
- * The component uses the `onChange` callback function to notify the
- * parent component whenever the range is changed.
  *
  * @example
  * <ValueRangeSelector
