@@ -1,6 +1,8 @@
 import type { MetaFunction, LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData, useSearchParams } from "@remix-run/react";
+import Parcel from "~/components/Parcel";
+
 import { plots, type Plot } from "~/data/plots";
 
 export const meta: MetaFunction = () => {
@@ -39,27 +41,34 @@ export default function Index() {
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const params = new URLSearchParams(searchParams);
-    
+
     if (value) {
       params.set(name, value);
     } else {
       params.delete(name);
     }
-    
+
     setSearchParams(params);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Available Plots</h1>
-        
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+          Available Plots
+        </h1>
+
         {/* Price Filter Section */}
         <div className="mb-6 bg-white p-4 rounded-lg shadow-sm">
-          <h2 className="text-lg font-medium text-gray-900 mb-4">Filter by Price</h2>
+          <h2 className="text-lg font-medium text-gray-900 mb-4">
+            Filter by Price
+          </h2>
           <div className="flex gap-4">
             <div>
-              <label htmlFor="minPrice" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="minPrice"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Min Price ($)
               </label>
               <input
@@ -72,7 +81,10 @@ export default function Index() {
               />
             </div>
             <div>
-              <label htmlFor="maxPrice" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="maxPrice"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Max Price ($)
               </label>
               <input
@@ -89,29 +101,14 @@ export default function Index() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {plots.map((plot) => (
-            <div
-              key={plot.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <div className="p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                  {plot.title}
-                </h2>
-                <p className="text-gray-600 mb-4">{plot.description}</p>
-                <div className="space-y-2">
-                  <p className="text-gray-700">
-                    <span className="font-medium">Location:</span> {plot.location}
-                  </p>
-                  <p className="text-gray-700">
-                    <span className="font-medium">Size:</span> {plot.size} m²
-                  </p>
-                  <p className="text-gray-700">
-                    <span className="font-medium">Price:</span> $
-                    {plot.price.toLocaleString()}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <Parcel
+              title={plot.title}
+              id={plot.id}
+              description={plot.description}
+              location={plot.location}
+              area={plot.size}
+              value={plot.price}
+            />
           ))}
         </div>
       </div>
