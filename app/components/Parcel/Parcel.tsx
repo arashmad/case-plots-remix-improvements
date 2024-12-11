@@ -78,7 +78,9 @@ const Parcel: React.FC<IParcel> = (props: IParcel): React.ReactNode => {
                 />
               </svg>
             </span>
-            <span className="font-medium">{area} m²</span>
+            <span className="font-medium">
+              {`${area}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} m²
+            </span>
           </p>
           <p className="flex gap-2 text-gray-700">
             <span>
