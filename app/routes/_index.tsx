@@ -82,6 +82,13 @@ export default function Index() {
   };
 
   /**
+   * Reset the list of land plots to its original state by clearing the search parameters.
+   */
+  const handleResetList = () => {
+    setSearchParams();
+  };
+
+  /**
    * Handing states using useEffect hook
    */
   useEffect(() => {
@@ -108,6 +115,7 @@ export default function Index() {
             minValue={minPrice}
             maxValue={maxPrice}
             onChange={handleValueChange}
+            onRemoveFilter={handleResetList}
           />
         </div>
 

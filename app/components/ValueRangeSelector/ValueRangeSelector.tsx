@@ -3,40 +3,36 @@ import React, { useState } from "react";
 /* Interfaces */
 import { IValueRangeSelector } from "~/interfaces/ValueRangeSelector";
 
-/**
- * A component that allows the user to select a range of values.
- *
- * @example
- * <ValueRangeSelector
- *   minValue={0}
- *   maxValue={100}
- *   onChange={(e) => console.log(e.target.value)}
- * />
- *
- * @param {IValueRangeSelector} props
- * @prop {number | string | undefined} minValue The minimum value of the range.
- * @prop {number | string | undefined} maxValue The maximum value of the range.
- * @prop {(e: React.ChangeEvent<HTMLInputElement>) => void} onChange The callback function called when the range changes.
- * @returns {React.ReactNode} A value range selector component
- */
 const ValueRangeSelector: React.FC<IValueRangeSelector> = (
   props: IValueRangeSelector
 ): React.ReactNode => {
-  const { minValue, maxValue, onChange } = props;
+  const { minValue, maxValue, onChange, onRemoveFilter } = props;
 
   const [range, setRange] = useState({
     min: minValue,
     max: maxValue,
   });
 
+  const [showResetFilter, setShowResetFilter] = useState(false);
+
   const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setRange({ ...range, [name]: Number(value) });
+    setShowResetFilter(true);
     onChange(e);
   };
 
+  const handleResetValue = () => {
+    setRange({
+      min: minValue,
+      max: maxValue,
+    });
+    setShowResetFilter(false);
+    onRemoveFilter();
+  };
+
   return (
-    <div className="flex gap-4">
+    <div className="flex items-end gap-4">
       {/* Minimum Price Input */}
       <div>
         <label
@@ -75,6 +71,30 @@ const ValueRangeSelector: React.FC<IValueRangeSelector> = (
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>
+      {!showResetFilter ? (
+        <></>
+      ) : (
+        <button
+          onClick={handleResetValue}
+          className="bg-slate-300 rounnde- p-2"
+          title="Reset Filter"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6 font-bold"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+        </button>
+      )}
     </div>
   );
 };
