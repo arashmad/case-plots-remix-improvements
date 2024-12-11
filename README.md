@@ -15,6 +15,7 @@
 [![vite](https://img.shields.io/badge/react-18.2.0-blue)](https://react.dev/)
 [![vite](https://img.shields.io/badge/typescript-1.6.0-blue)](https://www.typescriptlang.org/)
 [![react](https://img.shields.io/badge/remix-v2.15.0-blue)](https://remix.run/)
+[![codecov](https://codecov.io/gh/arashmad/case-plots-remix-improvements/graph/badge.svg?token=F9LXGT15JA)](https://codecov.io/gh/arashmad/case-plots-remix-improvements)
 
 </div>
 
