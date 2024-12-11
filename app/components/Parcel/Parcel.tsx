@@ -1,51 +1,7 @@
-/**
- * Interface representing a parcel.
- *
- * @interface IParcel
- */
-interface IParcel {
-  /**
-   * Unique identifier for the parcel.
-   *
-   * @type {string}
-   */
-  id: string;
+import React from "react";
 
-  /**
-   * Title of the parcel.
-   *
-   * @type {string}
-   */
-  title: string;
-
-  /**
-   * Description of the parcel.
-   *
-   * @type {string}
-   */
-  description: string;
-
-  /**
-   * Location of the parcel.
-   *
-   * @type {string}
-   */
-  location: string;
-
-  /**
-   * Area of the parcel.
-   *
-   * @type {number}
-   */
-  area: number;
-
-  /**
-   * Value of the parcel.
-   *
-   * @type {number}
-   */
-  value: number;
-}
+/* Interfaces */
+import { IParcel } from "~/interfaces/Parcel";
 
 /**
  * A single parcel component.
@@ -67,9 +23,9 @@ interface IParcel {
  * @prop {string} location Location of parcel
  * @prop {number} area Area of parcel in square meters
  * @prop {number} value Value of parcel in dollars
- * @returns {ReactElement} A single parcel component
+ * @returns {React.ReactNode} A single parcel component
  */
-const Parcel: React.FC<IParcel> = (props) => {
+const Parcel: React.FC<IParcel> = (props: IParcel): React.ReactNode => {
   const { id, title, description, location, area, value } = props;
 
   return (
