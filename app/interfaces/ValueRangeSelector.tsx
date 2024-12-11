@@ -24,4 +24,9 @@ export interface IValueRangeSelector {
    * @param {React.ChangeEvent<HTMLInputElement>} e - The change event
    */
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * Callback function called when the range is reset.
+   */
+  onRemoveFilter: () => void;
 }

@@ -4,8 +4,14 @@ import ValueRangeSelector from "../ValueRangeSelector";
 describe("ValueRangeSelector Component", () => {
   it("renders correctly with min and max values", () => {
     const handleChange = jest.fn();
+    const handleRemoveFilter = jest.fn();
     render(
-      <ValueRangeSelector minValue={0} maxValue={100} onChange={handleChange} />
+      <ValueRangeSelector
+        minValue={0}
+        maxValue={100}
+        onChange={handleChange}
+        onRemoveFilter={handleRemoveFilter}
+      />
     );
 
     expect(screen.getByLabelText(/Min Price/i)).toBeInTheDocument();
@@ -14,8 +20,14 @@ describe("ValueRangeSelector Component", () => {
 
   it("calls onChange when input values are changed", () => {
     const handleChange = jest.fn();
+    const handleRemoveFilter = jest.fn();
     render(
-      <ValueRangeSelector minValue={0} maxValue={100} onChange={handleChange} />
+      <ValueRangeSelector
+        minValue={0}
+        maxValue={100}
+        onChange={handleChange}
+        onRemoveFilter={handleRemoveFilter}
+      />
     );
 
     const minInput = screen.getByLabelText(/Min Price/i);
