@@ -3,6 +3,20 @@ import React, { useState } from "react";
 /* Interfaces */
 import { IValueRangeSelector } from "~/interfaces/ValueRangeSelector";
 
+/**
+ * ValueRangeSelector component.
+ *
+ * This component renders a range slider for value (e.g. price) input.
+ * It also provides a reset button which resets the value to the original
+ * minimum and maximum.
+ *
+ * @param {IValueRangeSelector} props - Component props
+ * @prop {number} minValue - Minimum value of the range
+ * @prop {number} maxValue - Maximum value of the range
+ * @prop {function} onChange - Called when the value changes
+ * @prop {function} onRemoveFilter - Called when the reset button is clicked
+ * @returns {React.ReactNode} A range slider and a reset button
+ */
 const ValueRangeSelector: React.FC<IValueRangeSelector> = (
   props: IValueRangeSelector
 ): React.ReactNode => {

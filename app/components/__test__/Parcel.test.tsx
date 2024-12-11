@@ -17,7 +17,7 @@ describe("Parcel Component", () => {
     expect(screen.getByText("Test Parcel")).toBeInTheDocument();
     expect(screen.getByText("A beautiful plot of land.")).toBeInTheDocument();
     expect(screen.getByText("Berlin, Germany")).toBeInTheDocument();
-    expect(screen.getByText("2000 m²")).toBeInTheDocument();
+    expect(screen.getByText("2,000 m²")).toBeInTheDocument();
     expect(screen.getByText("$500,000")).toBeInTheDocument();
   });
 });
